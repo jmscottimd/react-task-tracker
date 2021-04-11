@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import DatePicker from 'react-datetime';
+import moment from 'moment';
+
+import 'react-datetime/css/react-datetime.css';
 const AddTask = ({ onAdd }) => {
     const [text, setText] = useState('')
-    const [day, setDay] = useState('')
+    //const [day, setDay] = useState('')
+    const [dt, setDt] = useState(moment());
     const [reminder, setReminder] = useState(false)
     const onSubmit = (e) => {
         e.preventDefault()
@@ -10,9 +15,9 @@ const AddTask = ({ onAdd }) => {
                 alert('Please add a task')
                 return
             }
-            onAdd({text, day, reminder})
+            onAdd({text, dt, reminder})
             setText('')
-            setDay('')
+            setDt('')
             setReminder(false)
     
     }
@@ -26,9 +31,10 @@ const AddTask = ({ onAdd }) => {
             </div>
             <div className='form-control'>
                 <label>Day &amp; Time</label>
-                <input type='text' placeholder='Add Day &amp; Time' 
-                value={day} onChange={(e) => 
-                    setDay(e.target.value)}/>
+                <DatePicker
+                    value={dt}
+                    onChange={val => setDt(val)}
+                />
             </div>
             <div className='form-control form-control-check'>
                 <label>Set Reminder</label>

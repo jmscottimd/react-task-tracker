@@ -17,6 +17,12 @@
       "day": "Saturday April 9th 6:00pm",
       "reminder": true,
       "id": 3
+    },
+    {
+      "text": "Add Date Picker",
+      "dt": "2021-04-11T18:20:45.731Z",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
